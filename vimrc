@@ -34,7 +34,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'majutsushi/tagbar'
 Plugin 'godlygeek/tabular'
 Plugin 'tacahiroy/ctrlp-funky'
-
+Plugin 'tpope/vim-sensible'
+Plugin 'jaxbot/semantic-highlight.vim'
 call vundle#end()
 " Other stuff
 filetype plugin indent on
@@ -170,7 +171,7 @@ let php_sql_query = 1
 let php_noShortTags = 1
 let b:phpfold_use = 1
 let b:phpfold_doc_with_funcs = 1
-set foldmethod=expr
+:autocmd FileType php set foldmethod=expr
 
 " Tags
 set tags+=tags;$HOME
