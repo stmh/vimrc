@@ -25,6 +25,7 @@ Plugin 'isRuslan/vim-es6'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-haml'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'swekaj/php-foldexpr.vim'
@@ -36,6 +37,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'tpope/vim-sensible'
 Plugin 'jaxbot/semantic-highlight.vim'
+Plugin 'editorconfig/editorconfig-vim'
+
 call vundle#end()
 " Other stuff
 filetype plugin indent on
@@ -47,6 +50,7 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
+set noshowmode
 
 " UI
 colorscheme lucius
@@ -179,4 +183,10 @@ set tags+=tags;$HOME
 " CtrlpFunky
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
+
+" Markdown
+augroup markdown
+  au!
+  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
 
