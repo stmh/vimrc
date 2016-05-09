@@ -85,6 +85,11 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
 " Multiple cursors
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
@@ -189,4 +194,8 @@ augroup markdown
   au!
   au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
+
+
+" cd to current file-dir on BufEnter
+autocmd BufEnter * silent! lcd %:p:h
 
