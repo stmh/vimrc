@@ -38,6 +38,7 @@ Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'tpope/vim-sensible'
 Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'vim-scripts/Align'
 
 call vundle#end()
 " Other stuff
