@@ -199,3 +199,7 @@ augroup END
 " cd to current file-dir on BufEnter
 autocmd BufEnter * silent! lcd %:p:h
 
+" backup and swp files
+set backupdir=~/.backup//
+set directory=~/.backup//
+silent execute '!mkdir _backupdir'
