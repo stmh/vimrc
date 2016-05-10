@@ -51,6 +51,8 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline#extensions#hunks#enabled = 0
 set noshowmode
 
 " UI
@@ -78,7 +80,15 @@ set relativenumber
 " Performance
 set ttyfast
 set ttyscroll=3
-set lazyredraw
+let g:matchparen_timeout = 10
+let g:matchparen_insert_timeout = 10
+let loaded_matchparen=1 " Don't load matchit.vim (paren/bracket matching)
+set noshowmatch         " Don't match parentheses/brackets
+set nocursorcolumn      " Don't paint cursor column
+set lazyredraw          " Wait to redraw
+set scrolljump=8        " Scroll 8 lines at a time at bottom/top
+let html_no_rendering=1 " Don't render italic, bold, links in HTML
+" set synmaxcol=128
 
 " Neocomplete
 let g:acp_enableAtStartup = 0
@@ -120,6 +130,15 @@ set shiftwidth=2
 set expandtab
 set smartindent
 set autoindent
+set smartcase
+set ignorecase
+set incsearch
+set autowrite             " Save on buffer switch
+set autoread              " Check when a file is edited by another program
+set visualbell
+set nowritebackup
+set noswapfile
+set nobackup
 
 " Cleanup whitespace
 autocmd BufWritePre * :%s/\s\+$//e
@@ -131,7 +150,6 @@ set showmatch
 " Mappings
 map <Leader>s :syntax sync fromstart<CR>
 nnoremap <Leader>cs :%!phpcbf --standard=/usr/local/Cellar/php-code-sniffer/2.3.3/CodeSniffer/Standards/Drupal/ --extensions=php,module,inc,install,test,profile,theme<enter><enter>
-nnoremap <Leader>tt :TagbarToggle<CR>
 nnoremap <leader>fu :CtrlPFunky<Cr>
 nnoremap <Leader>h :Dash<CR>
 nnoremap <leader>a :Ag
@@ -160,15 +178,15 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
-nnoremap ü <C-]>
-nnoremap Ü <C-O>
-nnoremap ö [
-nnoremap ä ]
-nnoremap Ö {
-nnoremap Ä }
+nmap ü <C-]>
+nmap Ü <C-O>
+nmap ö [
+nmap ä ]
+nmap Ö {
+nmap Ä }
 nnoremap <Leader># :SemanticHighlightToggle<cr>
+
+imap jj <ESC>
 
 " Syntastic settings
 let g:syntastic_javascript_checkers = ['eslint']
@@ -200,7 +218,3 @@ augroup END
 " cd to current file-dir on BufEnter
 autocmd BufEnter * silent! lcd %:p:h
 
-" backup and swp files
-set backupdir=~/.backup//
-set directory=~/.backup//
-silent execute '!mkdir _backupdir'
