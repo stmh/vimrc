@@ -47,12 +47,17 @@ syntax on
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#show_tabs = 0
+
 let g:airline_powerline_fonts = 1
 set laststatus=2
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#whitespace#enabled = 0
+
 set noshowmode
 
 " UI
@@ -88,6 +93,9 @@ set nocursorcolumn      " Don't paint cursor column
 set lazyredraw          " Wait to redraw
 set scrolljump=8        " Scroll 8 lines at a time at bottom/top
 let html_no_rendering=1 " Don't render italic, bold, links in HTML
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+
 " set synmaxcol=128
 
 " Neocomplete
@@ -185,12 +193,21 @@ nmap ä ]
 nmap Ö {
 nmap Ä }
 nnoremap <Leader># :SemanticHighlightToggle<cr>
-
+nmap <tab> :tabNext<CR>
+nmap <Leader>tc :tabclose<CR>
 imap jj <ESC>
 
 " Syntastic settings
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_php_phpcs_args="--standard=/usr/local/Cellar/php-code-sniffer/2.3.3/CodeSniffer/Standards/Drupal/ --extensions=php,module,inc,install,test,profile,theme"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " PHP
 let php_folding = 1
@@ -199,6 +216,7 @@ let php_sql_query = 1
 let php_noShortTags = 1
 let b:phpfold_use = 1
 let b:phpfold_doc_with_funcs = 1
+let b:phpfold_group_args=0
 :autocmd FileType php set foldmethod=expr
 
 " Tags
@@ -207,6 +225,8 @@ set tags+=tags;$HOME
 " CtrlpFunky
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
+let g:ctrlp_user_command = 'ag %s -l --ignore-dir .git --ignore-dir node_modules --nocolor --hidden -g ""'
+
 
 " Markdown
 augroup markdown
