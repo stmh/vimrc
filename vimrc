@@ -188,10 +188,12 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader><space> :noh<cr>
 nmap ü <C-]>
 nmap Ü <C-O>
-nmap ö [
-nmap ä ]
 nmap Ö {
 nmap Ä }
+nnoremap öö [[
+nnoremap ää ]]
+nnoremap äö ][
+nnoremap öä []
 nnoremap <Leader># :SemanticHighlightToggle<cr>
 nmap <tab> :tabNext<CR>
 nmap <Leader>tc :tabclose<CR>
