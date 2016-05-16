@@ -227,7 +227,7 @@ set tags+=tags;$HOME
 " CtrlpFunky
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
-let g:ctrlp_user_command = 'ag %s -l --ignore-dir .git --ignore-dir node_modules --nocolor --hidden -g ""'
+let g:ctrlp_user_command = 'ag %s -l --ignore-dir .git --ignore-dir node_modules --ignore .DS_Store --nocolor --hidden -U -g ""'
 
 
 " Markdown
