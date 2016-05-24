@@ -212,8 +212,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " PHP
-let php_folding = 1
-let php_htmlInStrings = 1
+let php_folding = 0
+let php_html_in_strings = 0
+let php_html_in_heredoc = 0
 let php_sql_query = 1
 let php_noShortTags = 1
 let b:phpfold_use = 1
@@ -240,3 +241,5 @@ augroup END
 " cd to current file-dir on BufEnter
 autocmd BufEnter * silent! lcd %:p:h
 
+" Better yanking: http://ddrscott.github.io/blog/2016/yank-without-jank/
+vnoremap <expr>y "my\"" . v:register . "y`y"
