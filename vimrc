@@ -39,6 +39,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-scripts/Align'
+Plugin 'dietsche/vim-lastplace'
 
 call vundle#end()
 " Other stuff
@@ -243,3 +244,7 @@ autocmd BufEnter * silent! lcd %:p:h
 
 " Better yanking: http://ddrscott.github.io/blog/2016/yank-without-jank/
 vnoremap <expr>y "my\"" . v:register . "y`y"
+
+" python
+au FileType python setl sw=2 sts=2 et
+
