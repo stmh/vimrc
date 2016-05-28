@@ -40,6 +40,7 @@ Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-scripts/Align'
 Plugin 'dietsche/vim-lastplace'
+Plugin 'wellle/targets.vim'
 
 call vundle#end()
 " Other stuff
