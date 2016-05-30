@@ -202,8 +202,10 @@ nmap <Leader>tc :tabclose<CR>
 imap jj <ESC>
 
 " Syntastic settings
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint', 'jshint']
 let g:syntastic_php_phpcs_args="--standard=/usr/local/Cellar/php-code-sniffer/2.3.3/CodeSniffer/Standards/Drupal/ --extensions=php,module,inc,install,test,profile,theme"
+let g:syntastic_javascript_jshint_exec="/usr/local/bin/jshint"
+let g:syntastic_javascript_eslint_exec="/usr/local/bin/eslint"
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
