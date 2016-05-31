@@ -41,6 +41,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-scripts/Align'
 Plugin 'dietsche/vim-lastplace'
 Plugin 'wellle/targets.vim'
+Plugin 'dahu/Insertlessly'
 
 call vundle#end()
 " Other stuff
