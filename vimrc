@@ -252,3 +252,4 @@ vnoremap <expr>y "my\"" . v:register . "y`y"
 " python
 au FileType python setl sw=2 sts=2 et
 
+set conceallevel=0
