@@ -41,8 +41,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-scripts/Align'
 Plugin 'dietsche/vim-lastplace'
 Plugin 'wellle/targets.vim'
-Plugin 'dahu/Insertlessly'
-
+Plugin 'tpope/vim-dispatch'
 call vundle#end()
 " Other stuff
 filetype plugin indent on
@@ -165,7 +164,7 @@ nnoremap <leader>fu :CtrlPFunky<Cr>
 nnoremap <Leader>h :Dash<CR>
 nnoremap <leader>a :Ag
 nnoremap <leader>v <C-w>v<C-w>l
-nnoremap <leader>e :VimFiler<CR>
+nnoremap <leader>e :VimFilerExplorer<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>T :CtrlPTag<CR>
 nnoremap <Leader>t :CtrlPBufTag<CR>
@@ -252,3 +251,8 @@ vnoremap <expr>y "my\"" . v:register . "y`y"
 " python
 au FileType python setl sw=2 sts=2 et
 
+
+" Better search and replace
+vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
+    \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+omap s :normal vs<CR>
