@@ -42,6 +42,7 @@ Plugin 'vim-scripts/Align'
 Plugin 'dietsche/vim-lastplace'
 Plugin 'wellle/targets.vim'
 Plugin 'tpope/vim-dispatch'
+Plugin 'elzr/vim-json'
 call vundle#end()
 " Other stuff
 filetype plugin indent on
@@ -256,3 +257,5 @@ au FileType python setl sw=2 sts=2 et
 vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
     \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
 omap s :normal vs<CR>
+
+let g:vim_json_syntax_conceal = 0
