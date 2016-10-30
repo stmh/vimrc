@@ -160,7 +160,7 @@ set showmatch
 
 " Mappings
 map <Leader>s :syntax sync fromstart<CR>
-nnoremap <Leader>cs :%!phpcbf --standard=/usr/local/Cellar/php-code-sniffer/2.3.3/CodeSniffer/Standards/Drupal/ --extensions=php,module,inc,install,test,profile,theme<enter><enter>
+nnoremap <Leader>cs :%!phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme<enter><enter>
 nnoremap <leader>fu :CtrlPFunky<Cr>
 nnoremap <Leader>h :Dash<CR>
 nnoremap <leader>a :Ag
@@ -204,7 +204,7 @@ imap jj <ESC>
 
 " Syntastic settings
 let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-let g:syntastic_php_phpcs_args="--standard=/usr/local/Cellar/php-code-sniffer/2.3.3/CodeSniffer/Standards/Drupal/ --extensions=php,module,inc,install,test,profile,theme"
+let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
 let g:syntastic_javascript_jshint_exec="/usr/local/bin/jshint"
 let g:syntastic_javascript_eslint_exec="/usr/local/bin/eslint"
 set statusline+=%#warningmsg#
