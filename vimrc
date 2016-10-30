@@ -43,6 +43,7 @@ Plugin 'dietsche/vim-lastplace'
 Plugin 'wellle/targets.vim'
 Plugin 'tpope/vim-dispatch'
 Plugin 'elzr/vim-json'
+Plugin 'kchmck/vim-coffee-script'
 call vundle#end()
 " Other stuff
 filetype plugin indent on
@@ -259,3 +260,8 @@ vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
 omap s :normal vs<CR>
 
 let g:vim_json_syntax_conceal = 0
+
+"  move text and rehighlight -- vim tip_id=224
+vnoremap > ><CR>gv
+vnoremap < <<CR>gv
+
