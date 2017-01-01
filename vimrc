@@ -44,6 +44,7 @@ Plugin 'wellle/targets.vim'
 Plugin 'tpope/vim-dispatch'
 Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()
 " Other stuff
 filetype plugin indent on
@@ -65,7 +66,7 @@ let g:airline#extensions#whitespace#enabled = 0
 set noshowmode
 
 " UI
-colorscheme lucius
+colorscheme iceberg
 let g:airline_theme='lucius'
 set guifont=Suisse\ Int\'l\ Mono\ for\ Powerline:h14
 set guifont=Fira\ Code:h14
