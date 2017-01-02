@@ -2,50 +2,48 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
+call plug#begin('~/.vim/plugged')
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'mhinz/vim-signify'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/syntastic'
-Plugin 'rizzatti/dash.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimfiler.vim'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'rking/ag.vim'
-Plugin 'posva/vim-vue'
-Plugin 'Konfekt/FastFold'
-Plugin 'isRuslan/vim-es6'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-haml'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'swekaj/php-foldexpr.vim'
-Plugin 'szw/vim-tags'
-Plugin 'craigemery/vim-autotag'
-Plugin 'tpope/vim-surround'
-Plugin 'majutsushi/tagbar'
-Plugin 'godlygeek/tabular'
-Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'tpope/vim-sensible'
-Plugin 'jaxbot/semantic-highlight.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'vim-scripts/Align'
-Plugin 'dietsche/vim-lastplace'
-Plugin 'wellle/targets.vim'
-Plugin 'tpope/vim-dispatch'
-Plugin 'elzr/vim-json'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'mustache/vim-mustache-handlebars'
-call vundle#end()
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/syntastic'
+Plug 'rizzatti/dash.vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler.vim'
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+Plug 'Yggdroot/indentLine'
+Plug 'rking/ag.vim'
+Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'Konfekt/FastFold'
+Plug 'isRuslan/vim-es6'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-haml'
+Plug 'plasticboy/vim-markdown'
+Plug 'jtratner/vim-flavored-markdown'
+Plug 'Shougo/neocomplete.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'swekaj/php-foldexpr.vim'
+Plug 'szw/vim-tags'
+Plug 'craigemery/vim-autotag'
+Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
+Plug 'godlygeek/tabular'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'tpope/vim-sensible'
+Plug 'jaxbot/semantic-highlight.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-scripts/Align'
+Plug 'dietsche/vim-lastplace'
+Plug 'wellle/targets.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'elzr/vim-json'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mustache/vim-mustache-handlebars'
+call plug#end()
+
 " Other stuff
 filetype plugin indent on
 syntax on
@@ -209,6 +207,7 @@ let g:syntastic_javascript_checkers = ['eslint', 'jshint']
 let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
 let g:syntastic_javascript_jshint_exec="/usr/local/bin/jshint"
 let g:syntastic_javascript_eslint_exec="/usr/local/bin/eslint"
+let g:syntastic_vue_checkers = ['eslint']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
