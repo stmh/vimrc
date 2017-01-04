@@ -18,6 +18,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'rking/ag.vim'
 Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'Konfekt/FastFold'
+Plug 'nelsyeung/twig.vim', { 'for': 'twig' }
 Plug 'isRuslan/vim-es6'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-haml'
@@ -255,6 +256,7 @@ au FileType python setl sw=2 sts=2 et
 
 
 " Better search and replace
+" https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
     \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
 omap s :normal vs<CR>
@@ -265,3 +267,7 @@ let g:vim_json_syntax_conceal = 0
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
 
+" gui colors if running iTerm
+if $TERM_PROGRAM =~ "iTerm"
+  set termguicolors
+endif
