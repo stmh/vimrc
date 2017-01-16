@@ -39,7 +39,7 @@ hi! DiffChange ctermbg=23 ctermfg=159 guibg=#384851 guifg=#b3c3cc
 hi! DiffDelete ctermbg=95 ctermfg=224 guibg=#53343b guifg=#ceb0b6
 hi! DiffText cterm=NONE ctermbg=30 ctermfg=195 gui=NONE guibg=#5b7881 guifg=#c6c8d1
 hi! Directory ctermfg=109 guifg=#89b8c2
-hi! Error ctermbg=234 ctermfg=203 guibg=#161821 guifg=#e27878
+hi! Error ctermbg=234 ctermfg=203 guibg=#470707 guifg=#e27878
 hi! ErrorMsg ctermbg=234 ctermfg=203 guibg=#161821 guifg=#e27878
 hi! WarningMsg ctermbg=234 ctermfg=203 guibg=#161821 guifg=#e27878
 hi! EndOfBuffer ctermbg=234 ctermfg=236 guibg=#161821 guifg=#242940
@@ -81,7 +81,7 @@ hi! Todo ctermbg=234 ctermfg=150 guibg=#161821 guifg=#d8e599
 hi! Type ctermfg=109 gui=NONE guifg=#89b8c2
 hi! Underlined cterm=underline ctermfg=110 gui=underline guifg=#84a0c6 term=underline
 hi! VertSplit ctermbg=233 ctermfg=233 guibg=#0f1117 guifg=#0f1117
-hi! Visual ctermbg=236 guibg=#272c42
+hi! Visual ctermbg=236 guibg=#152c90
 hi! WildMenu ctermbg=255 ctermfg=234 guibg=#d4d5db guifg=#17171b
 hi! ZenSpace ctermbg=203 guibg=#e27878
 hi! diffAdded ctermfg=150 guifg=#b4be82
