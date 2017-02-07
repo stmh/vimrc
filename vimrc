@@ -44,6 +44,7 @@ Plug 'elzr/vim-json'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'easymotion/vim-easymotion'
+Plug 'jremmen/vim-ripgrep'
 call plug#end()
 
 " Other stuff
@@ -292,3 +293,5 @@ map <Leader>k <Plug>(easymotion-k)
 
 " map // to search for selected text
 vnoremap // y/<C-R>"<CR>
+
+vnoremap . :norm.<CR>
