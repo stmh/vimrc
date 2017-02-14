@@ -45,6 +45,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'easymotion/vim-easymotion'
 Plug 'jremmen/vim-ripgrep'
+Plug 'jdkanani/vim-material-theme'
 call plug#end()
 
 " Other stuff
@@ -67,10 +68,12 @@ let g:airline#extensions#whitespace#enabled = 0
 set noshowmode
 
 " UI
-colorscheme iceberg
+" colorscheme iceberg
+colorscheme material-theme
+set background=dark
 let g:airline_theme='lucius'
 set guifont=Suisse\ Int\'l\ Mono\ for\ Powerline:h14
-set guifont=Fira\ Code:h14
+set guifont=PragmataPro:h15
 if has('gui_running')
   set macligatures
 endif
@@ -204,6 +207,7 @@ nnoremap <Leader># :SemanticHighlightToggle<cr>
 nmap <tab> :tabNext<CR>
 nmap <Leader>tc :tabclose<CR>
 imap jj <ESC>
+
 
 " Syntastic settings
 let g:syntastic_javascript_checkers = ['eslint', 'jshint']
