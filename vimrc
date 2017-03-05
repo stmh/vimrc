@@ -13,7 +13,7 @@ Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+" Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug 'Yggdroot/indentLine'
 Plug 'rking/ag.vim'
 Plug 'posva/vim-vue', { 'for': 'vue' }
@@ -46,6 +46,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'easymotion/vim-easymotion'
 Plug 'jremmen/vim-ripgrep'
 Plug 'jdkanani/vim-material-theme'
+Plug 'lvht/phpcd.vim', { 'for': 'php' }
 call plug#end()
 
 " Other stuff
@@ -299,3 +300,6 @@ map <Leader>k <Plug>(easymotion-k)
 vnoremap // y/<C-R>"<CR>
 
 vnoremap . :norm.<CR>
+
+" Toggle background
+map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
