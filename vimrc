@@ -9,7 +9,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
@@ -205,25 +205,24 @@ nnoremap ää ]]
 nnoremap äö ][
 nnoremap öä []
 nnoremap <Leader># :SemanticHighlightToggle<cr>
-nmap <tab> :tabNext<CR>
 nmap <Leader>tc :tabclose<CR>
-imap jj <ESC>
+nmap <tab> :tabNext<CR>
 
 
 " Syntastic settings
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
-let g:syntastic_javascript_jshint_exec="/usr/local/bin/jshint"
-let g:syntastic_javascript_eslint_exec="/usr/local/bin/eslint"
-let g:syntastic_vue_checkers = ['eslint']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+" let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
+" let g:syntastic_javascript_jshint_exec="/usr/local/bin/jshint"
+" let g:syntastic_javascript_eslint_exec="/usr/local/bin/eslint"
+" let g:syntastic_vue_checkers = ['eslint']
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " PHP
 let php_folding = 0
@@ -303,3 +302,15 @@ vnoremap . :norm.<CR>
 
 " Toggle background
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
+" Move lines with Alt-j / Alt-k
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+set undofile " Maintain undo history between sessions
+
+
