@@ -312,5 +312,7 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 set undofile " Maintain undo history between sessions
+set undodir=~/.vim/undodir
+
 
 
