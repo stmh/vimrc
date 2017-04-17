@@ -77,8 +77,8 @@ set guifont=Suisse\ Int\'l\ Mono\ for\ Powerline:h14
 set guifont=PragmataPro:h15
 if has('gui_running')
   set macligatures
+  set lines=35 columns=120
 endif
-set lines=35 columns=120
 set colorcolumn=90
 set number
 set formatoptions=qrn1
