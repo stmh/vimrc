@@ -9,7 +9,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
@@ -77,8 +77,8 @@ set guifont=Suisse\ Int\'l\ Mono\ for\ Powerline:h14
 set guifont=PragmataPro:h15
 if has('gui_running')
   set macligatures
+  set lines=35 columns=120
 endif
-set lines=35 columns=120
 set colorcolumn=90
 set number
 set formatoptions=qrn1
@@ -210,19 +210,19 @@ nmap <tab> :tabNext<CR>
 
 
 " Syntastic settings
-" let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-" let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
-" let g:syntastic_javascript_jshint_exec="/usr/local/bin/jshint"
-" let g:syntastic_javascript_eslint_exec="/usr/local/bin/eslint"
-" let g:syntastic_vue_checkers = ['eslint']
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
+let g:syntastic_javascript_jshint_exec="/usr/local/bin/jshint"
+let g:syntastic_javascript_eslint_exec="/usr/local/bin/eslint"
+let g:syntastic_vue_checkers = ['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 0
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " PHP
 let php_folding = 0
@@ -314,5 +314,5 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 set undofile " Maintain undo history between sessions
 set undodir=~/.vim/undodir
 
-
-
+" set shell explicetely
+set shell=/bin/bash
