@@ -17,7 +17,7 @@ Plug 'Shougo/vimfiler.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'rking/ag.vim'
 Plug 'posva/vim-vue', { 'for': 'vue' }
-Plug 'Konfekt/FastFold'
+" Plug 'Konfekt/FastFold'
 Plug 'nelsyeung/twig.vim', { 'for': 'twig' }
 Plug 'isRuslan/vim-es6'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -26,7 +26,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'Shougo/neocomplete.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'swekaj/php-foldexpr.vim'
+" Plug 'swekaj/php-foldexpr.vim'
 Plug 'szw/vim-tags'
 Plug 'craigemery/vim-autotag'
 Plug 'tpope/vim-surround'
@@ -43,10 +43,11 @@ Plug 'tpope/vim-dispatch'
 Plug 'elzr/vim-json'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'easymotion/vim-easymotion'
 Plug 'jremmen/vim-ripgrep'
 Plug 'jdkanani/vim-material-theme'
-Plug 'lvht/phpcd.vim', { 'for': 'php' }
+Plug 'tpope/vim-commentary'
+Plug 'justinmk/vim-sneak'
+Plug 'cohama/lexima.vim'
 call plug#end()
 
 " Other stuff
@@ -230,10 +231,7 @@ let php_html_in_strings = 0
 let php_html_in_heredoc = 0
 let php_sql_query = 1
 let php_noShortTags = 1
-let b:phpfold_use = 1
-let b:phpfold_doc_with_funcs = 1
-let b:phpfold_group_args=0
-:autocmd FileType php set foldmethod=expr
+:autocmd FileType php set foldmethod=indent
 
 " Tags
 set tags+=tags;$HOME
@@ -269,31 +267,11 @@ omap s :normal vs<CR>
 
 let g:vim_json_syntax_conceal = 0
 
-"  move text and rehighlight -- vim tip_id=224
-vnoremap > ><CR>gv
-vnoremap < <<CR>gv
-
 " gui colors if running iTerm
 if $TERM_PROGRAM =~ "iTerm"
   set termguicolors
 endif
 
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-nmap s <Plug>(easymotion-overwin-f)
-" or
-" `s{char}{char}{label}`
-" Need one more keystroke, but on average, it may be more comfortable.
-nmap s <Plug>(easymotion-overwin-f2)
-
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
 
 " map // to search for selected text
 vnoremap // y/<C-R>"<CR>
@@ -316,3 +294,30 @@ set undodir=~/.vim/undodir
 
 " set shell explicetely
 set shell=/bin/bash
+
+" sneak
+let g:sneak#label = 1
+"replace 'f' with 1-char Sneak
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+"replace 't' with 1-char Sneak
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
+
+" Indent by tab/shift-tab
+:vmap <Tab> >
+:vmap <S-Tab> <
+
+" Make X an operator that removes text without placing text in the default registry
+nmap X "_d
+nmap XX "_dd
+vmap X "_d
+vmap x "_d
