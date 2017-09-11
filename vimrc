@@ -7,8 +7,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
 Plug 'Shougo/unite.vim'
@@ -44,36 +42,26 @@ Plug 'elzr/vim-json'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'jremmen/vim-ripgrep'
-Plug 'jdkanani/vim-material-theme'
 Plug 'tpope/vim-commentary'
 Plug 'justinmk/vim-sneak'
 Plug 'cohama/lexima.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'owickstrom/vim-colors-paramount'
+Plug 'yuttie/comfortable-motion.vim'
+
 call plug#end()
 
 " Other stuff
 filetype plugin indent on
 syntax on
 
-" Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#show_tabs = 0
-
-let g:airline_powerline_fonts = 1
 set laststatus=2
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#tagbar#enabled = 0
-let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#whitespace#enabled = 0
-
 set noshowmode
 
 " UI
 " colorscheme iceberg
-colorscheme material-theme
+colorscheme paramount
 set background=dark
-let g:airline_theme='lucius'
 set guifont=Suisse\ Int\'l\ Mono\ for\ Powerline:h14
 set guifont=PragmataPro:h15
 if has('gui_running')
@@ -95,7 +83,6 @@ set relativenumber
 
 " Performance
 set ttyfast
-set ttyscroll=3
 let g:matchparen_timeout = 10
 let g:matchparen_insert_timeout = 10
 let loaded_matchparen=1 " Don't load matchit.vim (paren/bracket matching)
@@ -316,8 +303,15 @@ omap T <Plug>Sneak_T
 :vmap <Tab> >
 :vmap <S-Tab> <
 
-" Make X an operator that removes text without placing text in the default registry
-nmap X "_d
-nmap XX "_dd
-vmap X "_d
-vmap x "_d
+" Lightline statusbar
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
