@@ -11,20 +11,10 @@ Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
-" Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug 'Yggdroot/indentLine'
 Plug 'rking/ag.vim'
-Plug 'posva/vim-vue', { 'for': 'vue' }
-" Plug 'Konfekt/FastFold'
-Plug 'nelsyeung/twig.vim', { 'for': 'twig' }
-Plug 'isRuslan/vim-es6'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-haml'
-Plug 'plasticboy/vim-markdown'
-Plug 'jtratner/vim-flavored-markdown'
 Plug 'Shougo/neocomplete.vim'
-Plug 'terryma/vim-multiple-cursors'
-" Plug 'swekaj/php-foldexpr.vim'
 Plug 'szw/vim-tags'
 Plug 'craigemery/vim-autotag'
 Plug 'tpope/vim-surround'
@@ -38,16 +28,14 @@ Plug 'vim-scripts/Align'
 Plug 'dietsche/vim-lastplace'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-dispatch'
-Plug 'elzr/vim-json'
-Plug 'kchmck/vim-coffee-script'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-commentary'
 Plug 'justinmk/vim-sneak'
-Plug 'cohama/lexima.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'owickstrom/vim-colors-paramount'
 Plug 'yuttie/comfortable-motion.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'josuegaleas/jay'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -59,9 +47,11 @@ set laststatus=2
 set noshowmode
 
 " UI
-" colorscheme iceberg
-colorscheme paramount
 set background=dark
+colorscheme nord
+let g:nord_italic_comments = 1
+let g:nord_comment_brightness = 20
+
 set guifont=Suisse\ Int\'l\ Mono\ for\ Powerline:h14
 set guifont=PragmataPro:h15
 if has('gui_running')
@@ -229,13 +219,6 @@ let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_user_command = 'ag %s -l --ignore-dir .git --ignore-dir node_modules --ignore .DS_Store --nocolor --hidden -U -g ""'
 
 
-" Markdown
-augroup markdown
-  au!
-  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
-
-
 " cd to current file-dir on BufEnter
 autocmd BufEnter * silent! lcd %:p:h
 
@@ -306,7 +289,7 @@ omap T <Plug>Sneak_T
 " Lightline statusbar
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -315,3 +298,8 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+
+" Drupal specifics
+au BufRead,BufNewFile *.theme set filetype=php
+au BufRead,BufNewFile *.install set filetype=php
+
