@@ -7,7 +7,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
-Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
@@ -36,6 +35,8 @@ Plug 'yuttie/comfortable-motion.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'josuegaleas/jay'
 Plug 'arcticicestudio/nord-vim'
+Plug 'w0rp/ale'
+Plug 'wincent/terminus'
 
 call plug#end()
 
@@ -187,20 +188,26 @@ nmap <Leader>tc :tabclose<CR>
 nmap <tab> :tabNext<CR>
 
 
-" Syntastic settings
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
-let g:syntastic_javascript_jshint_exec="/usr/local/bin/jshint"
-let g:syntastic_javascript_eslint_exec="/usr/local/bin/eslint"
-let g:syntastic_vue_checkers = ['eslint']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" ale settings
+let g:ale_fixers = {
+      \   'javascript': ['eslint'],
+      \   'php': ['phpcs'],
+      \}
+let g:ale_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
+let g:ale_php_phpcs_standard="Drupal"
+let g:ale_php_phpcs_exec="/usr/local/bin/phpcs"
+let g:ale_javascript_jshint_exec="/usr/local/bin/jshint"
+let g:ale_javascript_eslint_exec="/usr/local/bin/eslint"
+let g:ale_vue_checkers = ['eslint']
+let g:ale_lint_delay=1000
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " PHP
 let php_folding = 0
@@ -251,13 +258,13 @@ vnoremap . :norm.<CR>
 " Toggle background
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
-" Move lines with Alt-j / Alt-k
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+" Move lines with Ctrl-j / Ctrl-k
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 set undofile " Maintain undo history between sessions
 set undodir=~/.vim/undodir
@@ -267,6 +274,7 @@ set shell=/bin/bash
 
 " sneak
 let g:sneak#label = 1
+
 "replace 'f' with 1-char Sneak
 nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
@@ -281,10 +289,6 @@ xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
-
-" Indent by tab/shift-tab
-:vmap <Tab> >
-:vmap <S-Tab> <
 
 " Lightline statusbar
 set laststatus=2
@@ -303,3 +307,7 @@ let g:lightline = {
 au BufRead,BufNewFile *.theme set filetype=php
 au BufRead,BufNewFile *.install set filetype=php
 
+
+" Dash
+
+nmap <silent> K <Plug>DashSearch
